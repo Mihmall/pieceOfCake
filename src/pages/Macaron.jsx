@@ -5,7 +5,7 @@ const Macaron = () => {
   return (
     <>
       <div className="container">
-        <h1>Торты</h1>
+        <h1>Макаруны</h1>
       </div>
     </>
   );

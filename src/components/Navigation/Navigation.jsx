@@ -1,16 +1,21 @@
 import Link from "next/link";
 import React from "react";
-import Authentication from './Authentication/Authentication'
+import DropDown from "../DropDown/DropDown";
+
 const Navigation = () => {
   return (
-    
-      <header>
-        <div className="logoContainer"></div>
-        <div className="infoContainer"></div>
+    <header>
+      <div className="headerTop">
+        <div className="logoContainer">{/* <img src="" alt="" /> */}</div>
+        <div className="infoContainer">{/* <p></p> */}</div>
         <div className="authentication">
-        <Authentication />
+          {/* дропдаун с выбором регистрация или вход/выход */}
+          <DropDown />
+          
+          
         </div>
-        <div className="navContainer">
+      </div>
+      <div className="navContainer">
         <ul className="navCont">
           <li>
             <Link href="/">Home</Link>
@@ -27,9 +32,9 @@ const Navigation = () => {
           <li>
             <Link href="/AboutUs">О нас</Link>
           </li>
-        </ul></div>
-      </header>
-    
+        </ul>
+      </div>
+    </header>
   );
 };
 
