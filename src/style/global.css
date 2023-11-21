@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navCont{padding: 1rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 1;}
+.navCont>li{
+    width: 20%;
+    text-align: start;
+    padding: 10px;
+    cursor: pointer;
+}
