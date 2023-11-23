@@ -1,8 +1,19 @@
 import Link from "next/link";
-import React from "react";
-import DropDown from "../DropDown/DropDown";
+import React,{useState} from "react";
+import { DropDown } from "../DropDown/DropDown";
+
 
 const Navigation = () => {
+  // Состояние для открытия/закрытия
+
+  const [isDropDownOpen, setDropDownOpen] = useState(false);
+  const openDropDown = () => {
+    setDropDownOpen(true);
+  };
+  const closeDropDown = () => {
+    setDropDownOpen(false);
+  };
+
   return (
     <header>
       <div className="headerTop">
@@ -10,9 +21,9 @@ const Navigation = () => {
         <div className="infoContainer">{/* <p></p> */}</div>
         <div className="authentication">
           {/* дропдаун с выбором регистрация или вход/выход */}
-          <DropDown />
-          
-          
+        
+           <DropDown />
+         
         </div>
       </div>
       <div className="navContainer">

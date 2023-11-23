@@ -1,24 +1,53 @@
-import React,{useState} from "react";
-import { FaUserCircle,FaLock,FaLockOpen,FaRegStar } from "react-icons/fa";
-// import Authentication from './Authentication/Authentication'
+import React, { useState, useRef } from "react";
+import { FaUserCircle, FaLock, FaLockOpen, FaRegStar } from "react-icons/fa";
+// import { useReg } from "../Registration/Reg";
+import Link from "next/link";
+import { useClickOut } from "../hooks/useClickOut";
+export const DropDown = () => {
+  const dropDownRef = useRef(null);
 
-const DropDown = () => {
-    const [isOpen,setOpen]=useState(false);
+  const [openDropDown, setDropDownOpen] = useState(false);
+  useClickOut(dropDownRef, () => {
+    if (openDropDown)  setDropDownOpen(false)
+  });
+
+//   временно чтоб не ругался
+  const [user, setUser] = useState(null);
   return (
     <>
-      <button className="regBtn" onClick={()=>setOpen(!isOpen)}>
+        <button className="regBtn" onClick={setDropDownOpen} disabled={openDropDown ? true : false} >
         <FaUserCircle />
       </button>
-      <nav className={`regMenu ${isOpen ? 'active':''}`}>
+      <nav
+        className={`regMenu ${openDropDown ? "active" : ""}` }
+        ref={dropDownRef}
+      >
         <ul className="regMenuList">
-          <li className="regMenuItem"><FaRegStar /><span>{/* <Authentication /> */}Регистрация</span></li>
-          <li className="regMenuItem"><FaLockOpen /><span>Вход</span></li>
-          <li className="regMenuItem"><FaLock /><span>Выход</span></li>
-          {/* сделать тернарник */}
+          {user ? (
+          <li className="regMenuItem">
+            <button onClick={() => setDropDownOpen(!openDropDown)}>
+              <FaLock />
+              Выход
+            </button>
+          </li>
+           ) : ( 
+          <>
+            <li className="regMenuItem">
+              <Link href="/RegPage" onClick={() => setDropDownOpen(!openDropDown)}>
+                <FaRegStar />
+                Регистрация
+              </Link>
+            </li>
+            <li className="regMenuItem">
+              <Link href="/AuthenticationPage" onClick={() => setDropDownOpen(!openDropDown)}>
+                <FaLockOpen />
+                Вход
+              </Link>
+            </li>
+          </>
+           )} 
         </ul>
-      </nav>
+      </nav>{" "}
     </>
   );
 };
-
-export default DropDown;
