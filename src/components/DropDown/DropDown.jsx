@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import { FaUserCircle, FaLock, FaLockOpen, FaRegStar } from "react-icons/fa";
-// import { useReg } from "../Registration/Reg";
 import Link from "next/link";
 import { useClickOut } from "../hooks/useClickOut";
+import { useReg } from "../Registration/Reg";
 export const DropDown = () => {
   const dropDownRef = useRef(null);
 
@@ -11,8 +11,8 @@ export const DropDown = () => {
     if (openDropDown)  setDropDownOpen(false)
   });
 
-//   временно чтоб не ругался
-  const [user, setUser] = useState(null);
+
+  const { user ,onLogout } =useReg();
   return (
     <>
         <button className="regBtn" onClick={setDropDownOpen} disabled={openDropDown ? true : false} >
@@ -25,7 +25,7 @@ export const DropDown = () => {
         <ul className="regMenuList">
           {user ? (
           <li className="regMenuItem">
-            <button onClick={() => setDropDownOpen(!openDropDown)}>
+            <button onClick={onLogout}>
               <FaLock />
               Выход
             </button>

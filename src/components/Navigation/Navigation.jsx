@@ -6,13 +6,13 @@ import { DropDown } from "../DropDown/DropDown";
 const Navigation = () => {
   // Состояние для открытия/закрытия
 
-  const [isDropDownOpen, setDropDownOpen] = useState(false);
-  const openDropDown = () => {
-    setDropDownOpen(true);
-  };
-  const closeDropDown = () => {
-    setDropDownOpen(false);
-  };
+//   const [isDropDownOpen, setDropDownOpen] = useState(false);
+//   const openDropDown = () => {
+//     setDropDownOpen(true);
+//   };
+//   const closeDropDown = () => {
+//     setDropDownOpen(false);
+//   };
 
   return (
     <header>
