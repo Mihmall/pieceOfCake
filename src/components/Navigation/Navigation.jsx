@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <header>
       <div className="headerTop">
-        <div className="logoContainer">{/* <img src="" alt="" /> */}</div>
+        <div className="logoContainer"><img className="logoIcon" src="/image/b9fv_cb9z_221114.svg" alt="Logo" /></div>
         <div className="infoContainer">{/* <p></p> */}</div>
         <div className="authentication">
           {/* дропдаун с выбором регистрация или вход/выход */}
