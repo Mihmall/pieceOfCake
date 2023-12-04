@@ -1,24 +1,18 @@
 import Link from "next/link";
-import React,{useState} from "react";
+import React from "react";
 import { DropDown } from "../DropDown/DropDown";
 
 
 const Navigation = () => {
-  // Состояние для открытия/закрытия
-
-//   const [isDropDownOpen, setDropDownOpen] = useState(false);
-//   const openDropDown = () => {
-//     setDropDownOpen(true);
-//   };
-//   const closeDropDown = () => {
-//     setDropDownOpen(false);
-//   };
+ 
 
   return (
     <header>
       <div className="headerTop">
         <div className="logoContainer"><img className="logoIcon" src="/image/b9fv_cb9z_221114.svg" alt="Logo" /></div>
-        <div className="infoContainer">{/* <p></p> */}</div>
+        <div className="infoContainer"><p>Время работы:
+Пн-Пт: 09:00-18:00</p> 
+<p>Тел: +7 (999)999-99-99</p></div>
         <div className="authentication">
           {/* дропдаун с выбором регистрация или вход/выход */}
         

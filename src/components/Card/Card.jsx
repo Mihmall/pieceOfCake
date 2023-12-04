@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Card = ({ name, type, image, cost, specification, composition }) => {
+const Card = ({id, name, type, image, cost, specification, composition }) => {
   // +/-
   const [count, setCount] = useState(0);
   const handleIncrement = () => {
@@ -20,13 +20,12 @@ const Card = ({ name, type, image, cost, specification, composition }) => {
   };
 
   return (
-    <div className="card">
-      <img className="cardImg" alt={name} src={imgOr({ image })} />
+    <div className="card" id={`${type}_${id}`}>
+      <img className="cardImg" alt={{name}?{name}:{type}} src={imgOr({ image })} />
       <div className="cardInfo">
         <h2>{name}</h2>
         <ul>
           <li className="cardItem">{cost}</li>
-          {/* <li className="cardItem">{type}</li> */}
           <li className="cardItem">{specification}</li>
           <li className="cardItem">{composition}</li>
         </ul>
@@ -40,6 +39,7 @@ const Card = ({ name, type, image, cost, specification, composition }) => {
           +
         </button>
       </div>
+      <button className="toCart">В корзину</button>
     </div>
   );
 };

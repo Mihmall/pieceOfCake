@@ -47,7 +47,7 @@ export const DropDown = () => {
           </>
            )} 
         </ul>
-      </nav>{" "}
+      </nav>
     </>
   );
 };

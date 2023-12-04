@@ -14,7 +14,7 @@ const [userData, setUserData] = useState({
 
     if (userData.email && userData.password) {
       onLogin(userData);
-
+// заглушка вывод на страницу регистрации после заполнения формы
       router.push("/RegPage");
 
       setUserData({  email: "", password: "" });
@@ -38,6 +38,7 @@ const [userData, setUserData] = useState({
                 <button type="submit" className="regSubmit" >Отправить</button>
             </div>
         </form>
+        {/*вставить линк на регистрацию */}
     </div>
     </>)
 };
