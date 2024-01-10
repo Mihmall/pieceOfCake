@@ -2,13 +2,12 @@ import React, { useState } from "react";
 
 const Card = ({id, name, type, image, cost, specification, composition }) => {
   // +/-
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const handleIncrement = () => {
     setCount(count + 1);
   };
   const handleDecrement = () => {
     setCount(count - 1);
-    // здесь округление для того чтобы -0 не получать
   };
 
   //   альтернативная картинка (Logo)
@@ -31,7 +30,7 @@ const Card = ({id, name, type, image, cost, specification, composition }) => {
         </ul>
       </div>
       <div className="product-buttons">
-        <button onClick={handleDecrement} disabled={count === 0}>
+        <button onClick={handleDecrement} disabled={count === 1}>
           -
         </button>
         <h3 className="product-count">{count}</h3>

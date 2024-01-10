@@ -60,14 +60,14 @@ export const RegProvider = ({ children }) => {
 };
 
 /**
- * Хук для доступа к контексту вутентификации
+ * Хук для доступа к контексту аутентификации
  * @returns {object} - Значение контекста
  */
 export const useReg = () => {
   const context = useContext(RegContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within AuthProiver");
+    throw new Error("Ошибка");
   }
 
   return context;

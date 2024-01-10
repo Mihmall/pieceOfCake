@@ -3,7 +3,8 @@ import { useEffect } from "react";
 /**
  * Хук для закрытия окон по клику за пределами
  * @param {object} ref - персональный реф области 
- * @returns {object} - Значение контекста
+ * @param {object} close -закрытие контекста по клику вне области 
+ * @returns {void}
  */
 export const useClickOut = (ref, close) => {
   const handleClick = (e) => {

@@ -13,13 +13,14 @@ const Macaron = () => {
           ?.filter((cards) => cards.type === "macaron")
           .map((card) => (
             <Card
-              id={card?.id}
+              id={card.id}
               name={card?.name}
               type={card?.type}
               image={card?.image}
               cost={card?.cost}
               specification={card?.specification}
               composition={card?.composition}
+              key={card.id}
             />
           ))}
       </div>
