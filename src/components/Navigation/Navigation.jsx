@@ -22,7 +22,7 @@ const Navigation = ({onClickCartBtn}) => {
           <button className="btnCart" onClick={onClickCartBtn}>
             <FaCartArrowDown />
           </button>
-        </div> 
+        </div>
         <div className="authentication">
           {/* дропдаун с выбором регистрация или вход/выход */}
 

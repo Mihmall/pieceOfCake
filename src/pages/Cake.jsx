@@ -1,31 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "@/components/Card/Card";
-import { takeCards } from "@/components/hooks/takeCards";
+import { ToCartContext } from "@/Layout/MainLayout";
 
 // при открытии загружать карточки тортов
 const Cake = () => {
-      const cards = takeCards();   
-      
-      const onAddToCart =(obj)=>{
-        console.log(obj);
-      };
+  const { onAddToCart,cartItem, cards } = useContext(ToCartContext);
+  console.log(cartItem)
   return (
     <>
-    <h1>Торты</h1>
+      <h1>Торты</h1>
       <div className="container">
-        {cards?.filter((cards) => cards.type==="tort").map((card) => (
-          <Card
-            id={card.id}
-            name={card?.name}
-            type={card?.type}
-            image={card?.image}
-            cost={card?.cost}
-            specification={card?.specification}
-            composition={card?.composition}
-            key={card.id}
-            clickToCard={()=>onAddToCart(card)}
-          />
-        ))}
+        {cards
+          ?.filter((cards) => cards.type === "tort")
+          .map((card) => (
+            <Card
+              id={card.id}
+              {...card}
+              key={card.id}
+              added={cartItem.some((obj)=>Number(obj.id) === Number(card.id))}
+              clickToCard={() => onAddToCart(card)}
+            />
+          ))}
       </div>
     </>
   );

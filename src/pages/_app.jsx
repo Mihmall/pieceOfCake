@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/global.css";
 import MainLayout from "@/Layout/MainLayout";
 import { RegProvider } from "@/components/Registration/Reg";

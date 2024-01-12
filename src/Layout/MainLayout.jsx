@@ -1,34 +1,87 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import { useReg } from "@/components/Registration/Reg";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Drawer } from "@/components/Drawer/Drawer";
-import { takeCards } from "@/components/hooks/takeCards";
-import {onAddToCart} from "@/pages/Cake"
+import axios from "axios";
+import { render } from "react-dom";
+
 
 const MainLayout = ({ children }) => {
   const { user } = useReg();
-  const [drawerIsOpen, setDrawerOpen]= useState(false);
-  const [cartItem,setCartItem]=useState([])
-  const cards = takeCards();
-  // const onAddToCart =(obj)=>{
-  //   setCartItem([...cartItem, obj])
-  // };
+  const [drawerIsOpen, setDrawerOpen] = useState(false);
+  const [cartItem, setCartItem] = useState([]);
+  const [cards, setCards] = useState([]);
+
+  
+  //   получение данных
+  useEffect(() => {
+  const fetchCards = async () => {
+    try {
+      const responseCart = await axios.get("http://localhost:3001/catalogCard");
+      const cartResponse = await axios.get("http://localhost:3001/ToCart"); 
+      
+      setCartItem(cartResponse.data);
+      setCards(responseCart.data);
+    } 
+    catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+    fetchCards();
+  }, []);
+  
+  const onAddToCart = (obj) => {
+    try {
+      if (cartItem.find((newObj) =>Number(newObj.id)  === Number(obj.id))) {
+        axios.delete(`http://localhost:3001/ToCart/${obj.id}`);
+        setCartItem((prev) =>
+          prev.filter(item => 
+            Number(item.id) !== Number(obj.id)
+          )
+        );
+      } else {
+        axios.post("http://localhost:3001/ToCart", obj);
+        setCartItem((prev) => [...prev, obj]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const onDeleteInCart = (id) => {
+    axios.delete(`http://localhost:3001/ToCart/${id}`)
+    console.log(cartItem)
+    setCartItem((prev) =>
+      prev.filter((item) => {
+        Number(item.id) !== Number(id);
+      }));
+  };
+ 
 
   return (
     <>
-    {/* временно закоментил корзину */}
-      {drawerIsOpen && <Drawer items={cartItem} onCloseCartBtn={()=>setDrawerOpen(false)}/>}
-      <Navigation onClickCartBtn={()=>setDrawerOpen(true)} />
+      <Navigation onClickCartBtn={() => setDrawerOpen(true)} />
+      
+        <ToCartContext.Provider
+          value={{ cartItem ,cards, setCartItem, onAddToCart, onDeleteInCart,setCartItem}}
+        >
+        {drawerIsOpen && (
+          <Drawer
+            items={cartItem}
+            onCloseCartBtn={() => setDrawerOpen(false)}
+          />
+        )}
 
-      {children}
+          {children}
+        </ToCartContext.Provider>
+      
 
-      <button className="btnCart" onClick={()=>setDrawerOpen(true)}>
+      <button className="btnCart floatBtn" onClick={() => setDrawerOpen(true)}>
         <FaCartArrowDown />
       </button>
-      
     </>
-  );
+  )
 };
 
+export const ToCartContext = createContext();
 export default MainLayout;

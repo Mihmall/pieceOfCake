@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { imgOr } from "../hooks/takeCards";
+import { ToCartContext } from "@/Layout/MainLayout";
 
 const Card = ({
   id,
@@ -9,28 +11,23 @@ const Card = ({
   specification,
   composition,
   clickToCard,
+  added =false
 }) => {
-  const [isAdd, setAdd] = useState(false);
+  const {isCartDeleted} = useContext(ToCartContext);
+  const [isAdded,setIsAdded]=useState(added);
   const onClickToCard = () => {
-    clickToCard({id,
+    clickToCard( id,
       name,
+      type,
       image,
-      cost});
-    setAdd(!isAdd);
+      cost,
+      specification,
+      composition); 
+      setIsAdded(!isAdded);
   };
-
- 
-
-  //   альтернативная картинка (Logo)
-  const imgOr = ({ image }) => {
-    if (image === "") {
-      return "/image/b9fv_cb9z_221114.svg";
-    }
-    return image;
-  };
-
+  
   return (
-    <div className="card" id={`${type}_${id}`}>
+    <div className="card" id={{id}}>
       <img
         className="cardImg"
         alt={{ name } ? { name } : { type }}
@@ -39,14 +36,13 @@ const Card = ({
       <div className="cardInfo">
         <h2>{name}</h2>
         <ul>
-          <li className="cardItem">{cost}</li>
+          <li className="cardItem">{cost} руб./шт.</li>
           <li className="cardItem">{specification}</li>
           <li className="cardItem">{composition}</li>
         </ul>
       </div>
-      
-      <button className="toCart" onClick={onClickToCard}>
-        {isAdd ? "Добавлен" : "В корзину"}
+      <button className="toCart" onClick={onClickToCard} >
+        {isAdded ? "Удалить из корзины"  : "Добавить в корзину"}
       </button>
     </div>
   );

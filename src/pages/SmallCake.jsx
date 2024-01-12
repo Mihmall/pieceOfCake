@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "@/components/Card/Card";
-import { takeCards } from "@/components/hooks/takeCards";
+import { ToCartContext} from "@/Layout/MainLayout";
 // при открытии загружать карточки пирожных
 const SmallCake = () => {
-  const cards = takeCards();
+  const {onAddToCart,cards,cartItem} = useContext(ToCartContext);
   return (
     <><h1>Пирожные</h1>
       <div className="container">
@@ -11,14 +11,10 @@ const SmallCake = () => {
           ?.filter((cards) => cards.type === "eclar")
           .map((card) => (
             <Card
-              id={card.id}
-              name={card?.name}
-              type={card?.type}
-              image={card?.image}
-              cost={card?.cost}
-              specification={card?.specification}
-              composition={card?.composition}
               key={card.id}
+              {...card}
+              clickToCard={()=>onAddToCart(card)}
+              
             />
           ))}
       </div>
