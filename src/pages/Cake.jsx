@@ -5,6 +5,10 @@ import { takeCards } from "@/components/hooks/takeCards";
 // при открытии загружать карточки тортов
 const Cake = () => {
       const cards = takeCards();   
+      
+      const onAddToCart =(obj)=>{
+        console.log(obj);
+      };
   return (
     <>
     <h1>Торты</h1>
@@ -19,6 +23,7 @@ const Cake = () => {
             specification={card?.specification}
             composition={card?.composition}
             key={card.id}
+            clickToCard={()=>onAddToCart(card)}
           />
         ))}
       </div>

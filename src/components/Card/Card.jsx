@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 
-const Card = ({id, name, type, image, cost, specification, composition }) => {
-  // +/-
-  const [count, setCount] = useState(1);
-  const handleIncrement = () => {
-    setCount(count + 1);
+const Card = ({
+  id,
+  name,
+  type,
+  image,
+  cost,
+  specification,
+  composition,
+  clickToCard,
+}) => {
+  const [isAdd, setAdd] = useState(false);
+  const onClickToCard = () => {
+    clickToCard({id,
+      name,
+      image,
+      cost});
+    setAdd(!isAdd);
   };
-  const handleDecrement = () => {
-    setCount(count - 1);
-  };
+
+ 
 
   //   альтернативная картинка (Logo)
   const imgOr = ({ image }) => {
@@ -20,7 +31,11 @@ const Card = ({id, name, type, image, cost, specification, composition }) => {
 
   return (
     <div className="card" id={`${type}_${id}`}>
-      <img className="cardImg" alt={{name}?{name}:{type}} src={imgOr({ image })} />
+      <img
+        className="cardImg"
+        alt={{ name } ? { name } : { type }}
+        src={imgOr({ image })}
+      />
       <div className="cardInfo">
         <h2>{name}</h2>
         <ul>
@@ -29,16 +44,10 @@ const Card = ({id, name, type, image, cost, specification, composition }) => {
           <li className="cardItem">{composition}</li>
         </ul>
       </div>
-      <div className="product-buttons">
-        <button onClick={handleDecrement} disabled={count === 1}>
-          -
-        </button>
-        <h3 className="product-count">{count}</h3>
-        <button className="product-add" onClick={handleIncrement}>
-          +
-        </button>
-      </div>
-      <button className="toCart">В корзину</button>
+      
+      <button className="toCart" onClick={onClickToCard}>
+        {isAdd ? "Добавлен" : "В корзину"}
+      </button>
     </div>
   );
 };

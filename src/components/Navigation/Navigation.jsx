@@ -3,24 +3,30 @@ import React from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { DropDown } from "../DropDown/DropDown";
 
-
-const Navigation = () => {
- 
-
+const Navigation = ({onClickCartBtn}) => {
   return (
     <header>
       <div className="headerTop">
-        <div className="logoContainer"><img className="logoIcon" src="/image/b9fv_cb9z_221114.svg" alt="Logo" /></div>
-        <div className="infoContainer"><p>Время работы:
-Пн-Пт: 09:00-18:00</p> 
-<p>Тел: +7 (999)999-99-99</p></div><div><button className="btnCart" >
-        <FaCartArrowDown />
-      </button></div>
+        <div className="logoContainer">
+          <img
+            className="logoIcon"
+            src="/image/b9fv_cb9z_221114.svg"
+            alt="Logo"
+          />
+        </div>
+        <div className="infoContainer">
+          <p>Время работы: Пн-Пт: 09:00-18:00</p>
+          <p>Тел: +7 (999)999-99-99</p>
+        </div>
+        <div>
+          <button className="btnCart" onClick={onClickCartBtn}>
+            <FaCartArrowDown />
+          </button>
+        </div> 
         <div className="authentication">
           {/* дропдаун с выбором регистрация или вход/выход */}
-        
-           <DropDown />
-         
+
+          <DropDown />
         </div>
       </div>
       <div className="navContainer">
