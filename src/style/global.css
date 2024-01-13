@@ -263,6 +263,7 @@ h2 {
   justify-content: space-around;
   align-items: center;
   width: 40%;
+  min-height: 480px;
   min-width: 420px;
   overflow: hidden;
   border: 2px solid var(--first-bg-color);
