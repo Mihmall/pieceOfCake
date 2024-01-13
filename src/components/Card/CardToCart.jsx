@@ -3,7 +3,7 @@ import { imgOr } from "../hooks/takeCards";
 import { FaTimes } from "react-icons/fa";
 import { ToCartContext } from "@/Layout/MainLayout";
 
-const CardToCart = ({ id, name, image, cost }) => {
+const CardToCart = ({ id, name, image, cost ,costAll}) => {
   const { onDeleteInCart } = useContext(ToCartContext);
   // +/-
   const [count, setCount] = useState(1);
@@ -13,13 +13,16 @@ const CardToCart = ({ id, name, image, cost }) => {
   const handleDecrement = () => {
     setCount(count - 1);
   };
+  costAll=cost * count;
+  console.log(name,id);
+ 
   return (
     <div className="cardToCart" id={id}>
       <img className="cartImage" src={image || imgOr(`${""}`)} alt="" />
       <div className="cardInCart">
         <h3>{name}</h3>
         <p>Цена:{cost}</p>
-        <p>Общая стоймость:{cost * count}</p>
+        <p>Общая стоймость:{costAll}</p>
         <div className="product-buttons">
           <button onClick={handleDecrement} disabled={count === 1}>
             -

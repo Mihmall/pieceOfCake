@@ -5,13 +5,15 @@ import { ToCartContext } from "@/Layout/MainLayout";
 
 
 export const Drawer = ({ onCloseCartBtn, items}) => {
-  const {setCartItem} = useContext(ToCartContext);
+  const {setCartItem ,cartItem} = useContext(ToCartContext);
   const [complete,setComplete]= useState(false);
   const onClickComplete =()=>{
     setComplete(true);
     setCartItem([]);
   }
-  const costAll=0;
+  // const back=0;
+  // const res=cartItem.reduce((a,obj)=>Number(obj.costAll)+a,back)
+  // console.log(res)
   return (
     <div className="drawerCartOut">
       <div className="drawerCart">
@@ -23,7 +25,8 @@ export const Drawer = ({ onCloseCartBtn, items}) => {
         </div>
         <div>
           {items.map((card) => (
-            <CardToCart 
+            <CardToCart
+             costAll
                 {...card}
                 key={card.id}
                 
@@ -32,7 +35,7 @@ export const Drawer = ({ onCloseCartBtn, items}) => {
         </div>
         <div className="cartBottom">
           {/* временная заглушка цены */}
-          <p className="cartTotalCost">Цена: {costAll}руб.</p>
+          <p className="cartTotalCost">Цена: 0руб.</p>
           <button className="cartBtnOk" onClick={() => {onClickComplete()}}>
             {complete ? 'Заказ оформлен' : 'Оформить заказ'}
           </button>

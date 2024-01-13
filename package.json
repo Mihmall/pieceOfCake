@@ -1,8 +1,11 @@
 {
   "name": "cake",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
+  "homepage": "https://Mihmall.github.io/pieceOfCake",
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "dev": "concurrently  \"npm run server\" \"npm run devnext\"",
     "devnext": "next dev",
     "build": "next build",
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "gh-pages": "^6.1.1",
     "json-server": "^0.17.4",
     "mini-css-extract-plugin": "^2.7.6"
   }

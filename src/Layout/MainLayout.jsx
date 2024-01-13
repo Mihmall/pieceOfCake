@@ -4,8 +4,9 @@ import { useReg } from "@/components/Registration/Reg";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Drawer } from "@/components/Drawer/Drawer";
 import axios from "axios";
-import { render } from "react-dom";
 
+
+export const ToCartContext = createContext({});
 
 const MainLayout = ({ children }) => {
   const { user } = useReg();
@@ -31,17 +32,17 @@ const MainLayout = ({ children }) => {
     fetchCards();
   }, []);
   
-  const onAddToCart = (obj) => {
+  const onAddToCart = async (obj) => {
     try {
       if (cartItem.find((newObj) =>Number(newObj.id)  === Number(obj.id))) {
-        axios.delete(`http://localhost:3001/ToCart/${obj.id}`);
+        await axios.delete(`http://localhost:3001/ToCart/${obj.id}`);
         setCartItem((prev) =>
           prev.filter(item => 
             Number(item.id) !== Number(obj.id)
           )
         );
       } else {
-        axios.post("http://localhost:3001/ToCart", obj);
+        await axios.post("http://localhost:3001/ToCart", obj);
         setCartItem((prev) => [...prev, obj]);
       }
     } catch (error) {
@@ -49,21 +50,24 @@ const MainLayout = ({ children }) => {
     }
   };
   const onDeleteInCart = (id) => {
+    
     axios.delete(`http://localhost:3001/ToCart/${id}`)
-    console.log(cartItem)
+    console.log(id,cartItem)
     setCartItem((prev) =>
       prev.filter((item) => {
-        Number(item.id) !== Number(id);
+        Number(item.id) === Number(id);
       }));
   };
- 
+ const isItemAdd =(id)=>{
+  return cartItem.some((obj)=>Number(obj.id) === Number(id))
+ }
 
   return (
     <>
       <Navigation onClickCartBtn={() => setDrawerOpen(true)} />
       
         <ToCartContext.Provider
-          value={{ cartItem ,cards, setCartItem, onAddToCart, onDeleteInCart,setCartItem}}
+          value={{cartItem, cards ,setCartItem ,onAddToCart ,onDeleteInCart ,setCartItem ,isItemAdd}}
         >
         {drawerIsOpen && (
           <Drawer
@@ -83,5 +87,5 @@ const MainLayout = ({ children }) => {
   )
 };
 
-export const ToCartContext = createContext();
+
 export default MainLayout;

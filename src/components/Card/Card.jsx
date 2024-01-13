@@ -11,10 +11,8 @@ const Card = ({
   specification,
   composition,
   clickToCard,
-  added =false
 }) => {
-  const {isCartDeleted} = useContext(ToCartContext);
-  const [isAdded,setIsAdded]=useState(added);
+  const {isItemAdd} = useContext(ToCartContext);
   const onClickToCard = () => {
     clickToCard( id,
       name,
@@ -23,9 +21,7 @@ const Card = ({
       cost,
       specification,
       composition); 
-      setIsAdded(!isAdded);
   };
-  
   return (
     <div className="card" id={{id}}>
       <img
@@ -42,7 +38,7 @@ const Card = ({
         </ul>
       </div>
       <button className="toCart" onClick={onClickToCard} >
-        {isAdded ? "Удалить из корзины"  : "Добавить в корзину"}
+        {isItemAdd(id) ? "Удалить из корзины"  : "Добавить в корзину"}
       </button>
     </div>
   );
