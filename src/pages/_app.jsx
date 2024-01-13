@@ -4,7 +4,7 @@ import MainLayout from "@/Layout/MainLayout";
 import { RegProvider } from "@/components/Registration/Reg";
 
 /* Корневой элемент страницы */
-const App = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <RegProvider>
       <MainLayout>
@@ -14,4 +14,4 @@ const App = ({ Component, pageProps }) => {
   );
 };
 
-export default App;
+export default MyApp;
