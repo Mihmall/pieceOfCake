@@ -2,7 +2,7 @@
   "name": "cake",
   "version": "0.5.0",
   "private": true,
-  "homepage": "https://Mihmall.github.io/pieceOfCake",
+  "homepage": "https://mihmall.github.io/pieceOfCake",
   "scripts": {
     "predeploy":"npm run build",
     "deploy":"gh-pages -d build",
