@@ -11,9 +11,7 @@ export const Drawer = ({ onCloseCartBtn, items}) => {
     setComplete(true);
     setCartItem([]);
   }
-  // const back=0;
-  // const res=cartItem.reduce((a,obj)=>Number(obj.costAll)+a,back)
-  // console.log(res)
+
   return (
     <div className="drawerCartOut">
       <div className="drawerCart">
@@ -26,10 +24,8 @@ export const Drawer = ({ onCloseCartBtn, items}) => {
         <div>
           {items.map((card) => (
             <CardToCart
-             costAll
                 {...card}
                 key={card.id}
-                
                 />
           ))}
         </div>

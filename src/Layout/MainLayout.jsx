@@ -52,7 +52,6 @@ const MainLayout = ({ children }) => {
   const onDeleteInCart = (id) => {
     
     axios.delete(`http://localhost:3001/ToCart/${id}`)
-    console.log(id,cartItem)
     setCartItem((prev) =>
       prev.filter((item) => {
         Number(item.id) === Number(id);
