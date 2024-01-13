@@ -57,6 +57,9 @@ const MainLayout = ({ children }) => {
         Number(item.id) === Number(id);
       }));
   };
+  
+  
+
  const isItemAdd =(id)=>{
   return cartItem.some((obj)=>Number(obj.id) === Number(id))
  }
@@ -66,7 +69,7 @@ const MainLayout = ({ children }) => {
       <Navigation onClickCartBtn={() => setDrawerOpen(true)} />
       
         <ToCartContext.Provider
-          value={{cartItem, cards ,setCartItem ,onAddToCart ,onDeleteInCart ,setCartItem ,isItemAdd}}
+          value={{user,cartItem, cards ,setCartItem ,onAddToCart ,onDeleteInCart ,setCartItem ,isItemAdd}}
         >
         {drawerIsOpen && (
           <Drawer
