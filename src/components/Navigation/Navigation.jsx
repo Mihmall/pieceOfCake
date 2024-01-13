@@ -18,15 +18,15 @@ const Navigation = ({onClickCartBtn}) => {
           <p>Время работы: Пн-Пт: 09:00-18:00</p>
           <p>Тел: +7 (999)999-99-99</p>
         </div>
-        <div>
+        <div className="twoBtn">
           <button className="btnCart" onClick={onClickCartBtn}>
             <FaCartArrowDown />
           </button>
-        </div>
+        
         <div className="authentication">
           {/* дропдаун с выбором регистрация или вход/выход */}
-
           <DropDown />
+        </div>
         </div>
       </div>
       <div className="navContainer">
