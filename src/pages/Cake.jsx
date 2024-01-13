@@ -4,8 +4,7 @@ import { ToCartContext } from "@/Layout/MainLayout";
 
 // при открытии загружать карточки тортов
 const Cake = () => {
-  const { onAddToCart,cartItem, cards,isItemAdd } = useContext(ToCartContext);
-  console.log(cartItem)
+  const { onAddToCart, cards} = useContext(ToCartContext);
   return (
     <>
       <h1>Торты</h1>
