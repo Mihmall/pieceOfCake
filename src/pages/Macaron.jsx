@@ -5,7 +5,7 @@ import { ToCartContext} from "@/Layout/MainLayout";
 // при открытии загружать карточки макаруны
 const Macaron = () => {
  
-  const {onAddToCart,cards,cartItem} = useContext(ToCartContext);
+  const {onAddToCart,cards} = useContext(ToCartContext);
       
   return (
     <>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { imgOr } from "../hooks/takeCards";
+import { imgOr } from "../hooks/takeLogo";
 import { ToCartContext } from "@/Layout/MainLayout";
 
 const Card = ({
@@ -12,18 +12,12 @@ const Card = ({
   composition,
   clickToCard,
 }) => {
-  const {isItemAdd} = useContext(ToCartContext);
+  const { isItemAdd } = useContext(ToCartContext);
   const onClickToCard = () => {
-    clickToCard( id,
-      name,
-      type,
-      image,
-      cost,
-      specification,
-      composition); 
+    clickToCard(id, name, type, image, cost, specification, composition);
   };
   return (
-    <div className="card" id={{id}}>
+    <div className="card" id={{ id }}>
       <img
         className="cardImg"
         alt={{ name } ? { name } : { type }}
@@ -37,8 +31,8 @@ const Card = ({
           <li className="cardItem">{composition}</li>
         </ul>
       </div>
-      <button className="toCart" onClick={onClickToCard} >
-        {isItemAdd(id) ? "Удалить из корзины"  : "Добавить в корзину"}
+      <button className="toCart" onClick={onClickToCard}>
+        {isItemAdd(id) ? "Удалить из корзины" : "Добавить в корзину"}
       </button>
     </div>
   );

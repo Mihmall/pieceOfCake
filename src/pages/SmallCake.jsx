@@ -3,7 +3,7 @@ import Card from "@/components/Card/Card";
 import { ToCartContext} from "@/Layout/MainLayout";
 // при открытии загружать карточки пирожных
 const SmallCake = () => {
-  const {onAddToCart,cards,cartItem} = useContext(ToCartContext);
+  const {onAddToCart,cards} = useContext(ToCartContext);
   return (
     <><h1>Пирожные</h1>
       <div className="container">

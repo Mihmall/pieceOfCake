@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { imgOr } from "../hooks/takeCards";
+import { imgOr } from "../hooks/takeLogo";
 import { FaTimes } from "react-icons/fa";
 import { ToCartContext } from "@/Layout/MainLayout";
 
@@ -13,7 +13,7 @@ const CardToCart = ({ id, name, image, cost }) => {
   const handleDecrement = () => {
     setCount(count - 1);
   };
-  const costAll=cost * count;
+  const costAll = cost * count;
 
   return (
     <div className="cardToCart" id={id}>
