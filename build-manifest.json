@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/a_Vk7WmcbpGDrrkitx3RP/_buildManifest.js",
-    "static/a_Vk7WmcbpGDrrkitx3RP/_ssgManifest.js"
+    "static/55mkNfQEZnFpSrTdbfgAG/_buildManifest.js",
+    "static/55mkNfQEZnFpSrTdbfgAG/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -14,50 +14,50 @@
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/index-5f5b7e7ee09a3b8d.js"
+      "static/chunks/pages/index-3ef84747bccb862b.js"
     ],
     "/AboutUs": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/AboutUs-44043c0e1f0a2e58.js"
+      "static/chunks/pages/AboutUs-e88651486a26731d.js"
     ],
     "/AuthenticationPage": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/AuthenticationPage-15b4d6b54817de36.js"
+      "static/chunks/pages/AuthenticationPage-d7c5ed58dfaa9be8.js"
     ],
     "/Cake": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/Cake-eae002ae0ee95541.js"
+      "static/chunks/pages/Cake-e3f8d20c4fc88fbb.js"
     ],
     "/Macaron": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/Macaron-c1b8461592fb5d0b.js"
+      "static/chunks/pages/Macaron-c2efa34c57ca5530.js"
     ],
     "/RegPage": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/RegPage-0fea26e25a30102b.js"
+      "static/chunks/pages/RegPage-430e89ef4750a162.js"
     ],
     "/SmallCake": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/chunks/pages/SmallCake-d07ce9b712e41d62.js"
+      "static/chunks/pages/SmallCake-451ec3bfbed4dfce.js"
     ],
     "/_app": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
       "static/chunks/framework-66d32731bdd20e83.js",
       "static/chunks/main-436ff486eb898866.js",
-      "static/css/b8aefcefd662f272.css",
-      "static/chunks/pages/_app-e039fd0f40927df2.js"
+      "static/css/32bfa153bd95e98d.css",
+      "static/chunks/pages/_app-da9ab99de2afea8a.js"
     ],
     "/_error": [
       "static/chunks/webpack-8fa1640cc84ba8fe.js",
