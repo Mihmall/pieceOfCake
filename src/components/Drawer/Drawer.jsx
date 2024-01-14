@@ -3,8 +3,8 @@ import { FaTimes } from "react-icons/fa";
 import CardToCart from "../Card/CardToCart";
 import { ToCartContext } from "@/Layout/MainLayout";
 
-export const Drawer = ({ onCloseCartBtn, items }) => {
-  const { setCartItem, user } = useContext(ToCartContext);
+export const Drawer = ({ onCloseCartBtn }) => {
+  const { cartItem,setCartItem, user,onDeleteInCart } = useContext(ToCartContext);
   const [complete, setComplete] = useState(false);
   const onClickComplete = () => {
     setComplete(true);
@@ -21,8 +21,8 @@ export const Drawer = ({ onCloseCartBtn, items }) => {
           </div>
         </div>
         <div>
-          {items.map((card) => (
-            <CardToCart {...card} key={card.id} />
+          {cartItem.map((card) => (
+            <CardToCart {...card} key={card.id} onClickDel={()=>{onDeleteInCart(card.id)}} />
           ))}
         </div>
         <div className="cartBottom">

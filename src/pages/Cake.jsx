@@ -16,7 +16,7 @@ const Cake = () => {
               id={card.id}
               {...card}
               key={card.id}
-              clickToCard={() => onAddToCart(card)}
+              clickToCard={(obj) => onAddToCart(obj)}
             />
           ))}
       </div>

@@ -17,7 +17,7 @@ const CardToCart = ({ id, name, image, cost }) => {
 
   return (
     <div className="cardToCart" id={id}>
-      <img className="cartImage" src={image || imgOr(`${""}`)} alt="" />
+      <img className="cartImage" src={imgOr({image})} alt={name} />
       <div className="cardInCart">
         <h3>{name}</h3>
         <p>Цена:{cost}</p>

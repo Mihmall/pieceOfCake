@@ -54,7 +54,7 @@ const MainLayout = ({ children }) => {
     axios.delete(`http://localhost:3001/ToCart/${id}`)
     setCartItem((prev) =>
       prev.filter((item) => {
-        Number(item.id) === Number(id);
+        Number(item.id) !== Number(id);
       }));
   };
   
@@ -69,11 +69,10 @@ const MainLayout = ({ children }) => {
       <Navigation onClickCartBtn={() => setDrawerOpen(true)} />
       
         <ToCartContext.Provider
-          value={{user,cartItem, cards ,setCartItem ,onAddToCart ,onDeleteInCart ,setCartItem ,isItemAdd}}
+          value={{user, cartItem, cards ,setCartItem ,onAddToCart ,onDeleteInCart ,setCartItem ,isItemAdd}}
         >
         {drawerIsOpen && (
           <Drawer
-            items={cartItem}
             onCloseCartBtn={() => setDrawerOpen(false)}
           />
         )}

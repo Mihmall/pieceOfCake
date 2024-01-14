@@ -14,7 +14,7 @@ const Card = ({
 }) => {
   const { isItemAdd } = useContext(ToCartContext);
   const onClickToCard = () => {
-    clickToCard(id, name, type, image, cost, specification, composition);
+    clickToCard({id, name, type, image, cost, specification, composition});
   };
   return (
     <div className="card" id={{ id }}>
