@@ -19,8 +19,10 @@ const MainLayout = ({ children }) => {
   useEffect(() => {
   const fetchCards = async () => {
     try {
-      const responseCart = await axios.get("http://localhost:3001/catalogCard");
-      const cartResponse = await axios.get("http://localhost:3001/ToCart"); 
+      const responseCart = await axios.get("https://65a34012a54d8e805ed37cdb.mockapi.io/CatalogCard");
+      const cartResponse = await axios.get("https://65a34012a54d8e805ed37cdb.mockapi.io/ToCart"); 
+      // const responseCart = await axios.get("http://localhost:3001/catalogCard");
+      // const cartResponse = await axios.get("http://localhost:3001/ToCart"); 
       
       setCartItem(cartResponse.data);
       setCards(responseCart.data);
@@ -35,14 +37,16 @@ const MainLayout = ({ children }) => {
   const onAddToCart = async (obj) => {
     try {
       if (cartItem.find((newObj) =>Number(newObj.id)  === Number(obj.id))) {
-        await axios.delete(`http://localhost:3001/ToCart/${obj.id}`);
+        await axios.delete(`https://65a34012a54d8e805ed37cdb.mockapi.io/ToCart/${obj.id}`);
+        // await axios.delete(`http://localhost:3001/ToCart/${obj.id}`);
         setCartItem((prev) =>
           prev.filter(item => 
             Number(item.id) !== Number(obj.id)
           )
         );
       } else {
-        await axios.post("http://localhost:3001/ToCart", obj);
+        await axios.post("https://65a34012a54d8e805ed37cdb.mockapi.io/ToCart", obj);
+        // await axios.post("http://localhost:3001/ToCart", obj);
         setCartItem((prev) => [...prev, obj]);
       }
     } catch (error) {
@@ -51,7 +55,8 @@ const MainLayout = ({ children }) => {
   };
   const onDeleteInCart = (id) => {
     
-    axios.delete(`http://localhost:3001/ToCart/${id}`)
+    axios.delete(`https://65a34012a54d8e805ed37cdb.mockapi.io/ToCart/${id}`)
+    // axios.delete(`http://localhost:3001/ToCart/${id}`)
     setCartItem((prev) =>
       prev.filter((item) => {
         Number(item.id) !== Number(id);
