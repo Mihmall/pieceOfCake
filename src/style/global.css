@@ -33,6 +33,15 @@ h1 {
 h2 {
   text-align: center;
 }
+.fon{
+background-image: url("/image/Back.jpg");
+min-height: 91.7vh;
+width: 100%;
+height: 100%;
+overflow:  hidden;
+}
+
+
 /* шапка */
 .logoIcon {
   width: 50px;
@@ -50,6 +59,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  background:#f8f5db;
 }
 .twoBtn{
   display: flex;

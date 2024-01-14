@@ -6,8 +6,9 @@ import { ToCartContext } from "@/Layout/MainLayout";
 const Cake = () => {
   const { isLoading,onAddToCart, cards} = useContext(ToCartContext);
   return (
-    <>
+    <><div className="fon">
       <h1>Торты</h1>
+      
       <div className="container">
         {cards
           ?.filter((cards) => cards.type === "tort")
@@ -21,7 +22,7 @@ const Cake = () => {
               
             />
           ))}
-      </div>
+      </div></div>
     </>
   );
 };

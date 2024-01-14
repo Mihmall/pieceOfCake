@@ -5,7 +5,8 @@ import { ToCartContext} from "@/Layout/MainLayout";
 const SmallCake = () => {
   const {onAddToCart,cards} = useContext(ToCartContext);
   return (
-    <><h1>Пирожные</h1>
+    <div className="fon"><h1>Пирожные</h1>
+    
       <div className="container">
         {cards
           ?.filter((cards) => cards.type === "eclar")
@@ -17,8 +18,8 @@ const SmallCake = () => {
               
             />
           ))}
-      </div>
-    </>
+      </div></div>
+    
   );
 };
 

@@ -8,7 +8,7 @@ const Macaron = () => {
   const {onAddToCart,cards} = useContext(ToCartContext);
       
   return (
-    <>
+    <><div className="fon">
       <h1>Макаруны</h1>
       <div className="container">
         {cards
@@ -21,7 +21,7 @@ const Macaron = () => {
              
             />
           ))}
-      </div>
+      </div></div>
     </>
   );
 };

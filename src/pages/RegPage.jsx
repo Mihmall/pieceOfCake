@@ -24,7 +24,9 @@ const [userData, setUserData] = useState({
     }
   };
 
-    return(<>
+    return(<><div className="fon">
+    <h1>Регистрация</h1>
+    
     <div className="regContainer">
         <form action="#" onSubmit={handleLogin}>
             <div className="inputCont">
@@ -43,7 +45,7 @@ const [userData, setUserData] = useState({
                 <button type="submit" className="regSubmit">Отправить</button>
             </div>
         </form>
-    </div>
+    </div></div>
     </>)
 };
 

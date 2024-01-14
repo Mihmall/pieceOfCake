@@ -24,6 +24,7 @@ const [userData, setUserData] = useState({
   };
 // отключить сохранение в память.
   return(<>
+  <div className="fon"><h1>Аутентификация</h1>
     <div className="regContainer">
         <form action="#" onSubmit={handleLogin}>
             <div className="inputCont">
@@ -39,7 +40,7 @@ const [userData, setUserData] = useState({
             </div>
         </form>
         {/*вставить линк на регистрацию */}
-    </div>
+    </div></div>
     </>)
 };
 

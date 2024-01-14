@@ -3,7 +3,8 @@ import React from "react";
 const AboutUs = () => {
   return (
     <>
-      <h1>О нас</h1>
+      
+      <div className="fon"><h1>О нас</h1>
       <div className="containerUs">
         <p>
           Отменное качество тортов, пирожных и выпечки придало Bakery Shop
@@ -19,7 +20,7 @@ const AboutUs = () => {
           таких известных мастеров, как Николя Панго, Фредерик Нуайе, Микаэль
           Азус, Фрэнк Фурман, Луи Баденхорст и многих других.
         </p>
-      </div>
+      </div></div>
     </>
   );
 };
