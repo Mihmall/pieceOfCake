@@ -4,7 +4,7 @@ import { ToCartContext } from "@/Layout/MainLayout";
 
 // при открытии загружать карточки тортов
 const Cake = () => {
-  const { onAddToCart, cards} = useContext(ToCartContext);
+  const { isLoading,onAddToCart, cards} = useContext(ToCartContext);
   return (
     <>
       <h1>Торты</h1>
@@ -17,6 +17,8 @@ const Cake = () => {
               {...card}
               key={card.id}
               clickToCard={(obj) => onAddToCart(obj)}
+              loading={isLoading}
+              
             />
           ))}
       </div>

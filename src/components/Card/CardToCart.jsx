@@ -1,10 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { imgOr } from "../hooks/takeLogo";
-import { FaTimes } from "react-icons/fa";
-import { ToCartContext } from "@/Layout/MainLayout";
+
 
 const CardToCart = ({ id, name, image, cost }) => {
-  const { onDeleteInCart } = useContext(ToCartContext);
   // +/-
   const [count, setCount] = useState(1);
   const handleIncrement = () => {
@@ -16,8 +14,8 @@ const CardToCart = ({ id, name, image, cost }) => {
   const costAll = cost * count;
 
   return (
-    <div className="cardToCart" id={id}>
-      <img className="cartImage" src={imgOr({image})} alt={name} />
+    <>
+      <img className="cartImage" src={imgOr({ image })} alt={name} />
       <div className="cardInCart">
         <h3>{name}</h3>
         <p>Цена:{cost}</p>
@@ -32,10 +30,7 @@ const CardToCart = ({ id, name, image, cost }) => {
           </button>
         </div>
       </div>
-      <div className="removeBtn" onClick={() => onDeleteInCart(id)}>
-        <FaTimes />
-      </div>
-    </div>
+    </>
   );
 };
 export default CardToCart;
